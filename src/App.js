@@ -6,9 +6,10 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { ListBody } from "./ListBody";
-
+import { TodoCounter } from "./TodoCounter";
 function App() {
   let [listTodo, pushTodo] = useState([]);
+  let counter = listTodo.length;
   let [todo, setTodo] = useState("");
 
   let changeHandler = (event) => {
@@ -16,11 +17,16 @@ function App() {
   };
 
   let addToList = () => {
+    console.log(counter);
     let objectholder = {
       id: listTodo.length === 0 ? 1 : listTodo[listTodo.length - 1].id + 1,
       todoName: todo,
     };
     pushTodo([...listTodo, objectholder]);
+  };
+
+  let clearTodo = () => {
+    pushTodo([]);
   };
 
   let deleteTodo = (id) => {
@@ -40,6 +46,7 @@ function App() {
 
   return (
     <div className="App">
+      <TodoCounter todoCounts={counter} />
       <div>
         <Box
           component="form"
@@ -74,6 +81,22 @@ function App() {
             onClick={addToList}
           >
             Add
+          </Button>
+        </Stack>
+        <Stack
+          spacing={2}
+          direction="row"
+          display="flex"
+          position="relative"
+          left="300px"
+          top="-85.5px"
+        >
+          <Button
+            className="upperComponent"
+            variant="contained"
+            onClick={clearTodo}
+          >
+            Clear
           </Button>
         </Stack>
       </div>

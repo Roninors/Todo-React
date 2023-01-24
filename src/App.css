@@ -27,7 +27,7 @@
   font-family: sans-serif;
   color: black;
   border-radius: 10px;
-  background-color: rgb(223, 224, 228);
+  background-color: rgb(255, 255, 255);
   text-align: center;
   margin: 20px;
 }
@@ -60,4 +60,28 @@ th {
 
 .ModalBtn {
   background-color: red;
+}
+
+.counter{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 30px;
+ padding: 10px;
+ text-align: center;
+ border-radius:  100px;
+position: relative;
+background-color: #1976d2;
+font-family: sans-serif;
+  color: rgb(255, 254, 254);
+  right: 20px;
+  top: -30px;
+
+}
+
+.counter:hover{
+  background-color: #194979;
+  transition: ease 1s;
+  transform: scale(1.1);
+  cursor: pointer;
 }

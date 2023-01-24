@@ -1,4 +1,4 @@
-export let ListBody = ({ todoName, id, deleteTodo, editTodo }) => {
+export let ListBody = ({todoName,id,deleteTodo,editTodo}) => {
   return (
     <div className="todo-names">
       <table>
