@@ -25,29 +25,18 @@ function App() {
 
   let deleteTodo = (id) => {
     const todoIdentifier = listTodo.filter((todoName) => {
-      if (todoName.id === id) {
-        return "";
-      } else {
-        return todoName;
-      }
+      return todoName.id === id ? "" : todoName;
     });
     pushTodo(todoIdentifier);
   };
 
   let editTodo = (id) => {
-    const editFinder = listTodo.filter((todoName)=>{
-      if (todoName.id === id) {
-        let ValReplace = prompt()
-        if(ValReplace === null) {
-          return
-         }
-         
-        let newVal = todoName.todoName = ValReplace;
-        
-      setTodo(newVal)
-      } 
-    })
-  }
+    let ValReplace = prompt();
+    const editFinder = listTodo.filter((todoName) => {
+      return todoName.id === id ? (todoName.todoName = ValReplace) : todoName;
+    });
+    setTodo(editFinder);
+  };
 
   return (
     <div className="App">
@@ -88,11 +77,17 @@ function App() {
           </Button>
         </Stack>
       </div>
-      
+
       <div className="list-body">
-        {listTodo.map((todos, key) => {
-          return <ListBody todoName = {todos.todoName} id = {todos.id}  deleteTodo = {deleteTodo} 
-          editTodo = {editTodo}/>
+        {listTodo.map((todos) => {
+          return (
+            <ListBody
+              todoName={todos.todoName}
+              id={todos.id}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          );
         })}
       </div>
     </div>

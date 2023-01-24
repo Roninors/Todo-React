@@ -1,4 +1,4 @@
-export let ListBody = (props, key) => {
+export let ListBody = ({ todoName, id, deleteTodo, editTodo }) => {
   return (
     <div className="todo-names">
       <table>
@@ -6,12 +6,12 @@ export let ListBody = (props, key) => {
           <th>To do</th>
         </tr>
         <tr>
-          <td>{props.todoName}</td>
+          <td>{todoName}</td>
         </tr>
       </table>
 
-      <button onClick={() => props.deleteTodo(props.id)}>Delete</button>
-      <button onClick={() => props.editTodo(props.id)}>Edit</button>
+      <button onClick={() => deleteTodo(id)}>Delete</button>
+      <button onClick={() => editTodo(id)}>Edit</button>
     </div>
   );
 };
